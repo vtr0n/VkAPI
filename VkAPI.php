@@ -159,7 +159,7 @@ class VkAPI
         return $this->request("friends.get",
             array(
                 'count' => $count,
-                '$user_id' => $user_id,
+                'user_id' => $user_id,
                 'list_id' => $list_id,
                 'fields' => $fields
             )
@@ -206,7 +206,7 @@ class VkAPI
         return $this->request("groups.setCallbackServer",
             array(
                 'group_id' => $group_id,
-                '$server_url' => $server_url
+                'server_url' => $server_url
             )
         );
     }

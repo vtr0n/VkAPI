@@ -292,4 +292,49 @@ class VkAPI
             )
         );
     }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Wall
+    //------------------------------------------------------------------------------------------------------------------
+
+    public function wall_get($owner_id, $offset, $count, $filter)
+    {
+        return $this->request("wall.get",
+            array(
+                'owner_id' => $owner_id,
+                'offset' => $offset,
+                'filter' => $filter,
+                'count' => $count
+            )
+        );
+    }
+
+    public function wall_getById($posts, $filter, $extended = 0, $copy_history_depth = 2)
+    {
+        return $this->request("wall.getById",
+            array(
+                'posts' => $posts,
+                'filter' => $filter,
+                'extended' => $extended,
+                'copy_history_depth' => $copy_history_depth
+            )
+        );
+    }
+
+    public function wall_getReposts($owner_id, $post_id, $offset, $count)
+    {
+        return $this->request("wall.getReposts",
+            array(
+                'owner_id' => $owner_id,
+                'post_id' => $post_id,
+                'offset' => $offset,
+                'count' => $count
+            )
+        );
+    }
+
+    public function wall_post($message, $attachments)
+    {
+        return $this->request("wall.post", array('message' => $message, 'attachments' => $attachments));
+    }
 }

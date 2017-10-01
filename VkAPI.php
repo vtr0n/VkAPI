@@ -297,6 +297,18 @@ class VkAPI
     // Wall
     //------------------------------------------------------------------------------------------------------------------
 
+    public function wall_createComment($owner_id, $post_id, $message, $from_group = 0)
+    {
+        return $this->request("wall.createComment",
+            array(
+                'post_id' => $post_id,
+                'owner_id' => $owner_id,
+                'from_group' => $from_group,
+                'message' => $message
+            )
+        );
+    }
+
     public function wall_get($owner_id, $offset, $count, $filter)
     {
         return $this->request("wall.get",
@@ -333,8 +345,14 @@ class VkAPI
         );
     }
 
-    public function wall_post($message, $attachments)
+    public function wall_post($owner_id, $message, $attachments)
     {
-        return $this->request("wall.post", array('message' => $message, 'attachments' => $attachments));
+        return $this->request("wall.post",
+            array(
+                'owner_id' => $owner_id,
+                'message' => $message,
+                'attachments' => $attachments
+            )
+        );
     }
 }

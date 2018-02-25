@@ -177,6 +177,31 @@ class VkAPI
         );
     }
 
+	//------------------------------------------------------------------------------------------------------------------
+	// Gifts
+	//------------------------------------------------------------------------------------------------------------------
+
+
+	/**
+	 * This method used only with official access token.
+	 * Worked sample:
+	 * https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username=*LOGIN*&password=*PASSWORD*
+	 */
+	public function gifts_send($user_ids, $gift_id, $confirm = 1)
+	{
+		$guid = rand(1,10000);
+
+		return $this->request(
+			"gifts.send",
+			array(
+				'user_ids' => $user_ids,
+				'gift_id' => $gift_id,
+				'guid' => $guid,
+				'confirm' => $confirm
+			)
+		);
+	}
+
     //------------------------------------------------------------------------------------------------------------------
     // Groups
     //------------------------------------------------------------------------------------------------------------------

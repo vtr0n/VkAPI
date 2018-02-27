@@ -181,6 +181,17 @@ class VkAPI
 	// Gifts
 	//------------------------------------------------------------------------------------------------------------------
 
+	public function gifts_get($user_id, $count, $offset = 0)
+	{
+		return $this->request(
+			"gifts.get",
+			array(
+				'user_id' => $user_id,
+				'count' => $count,
+				'offset' => $offset
+			)
+		);
+	}
 
 	/**
 	 * This method used only with official access token.
